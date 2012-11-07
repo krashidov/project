@@ -54,28 +54,17 @@
 <div class="row">
     <div class="span8">
 
-        <form class="form-horizontal">
-        <div class="control-group">
-        <label class="control-label" for="inputUsername">Username</label>
-        <div class="controls">
-        <input type="text" id="inputUsername" placeholder="Username">
-        </div>
-        </div>
-        <div class="control-group">
-        <label class="control-label" for="inputPassword">Password</label>
-        <div class="controls">
-        <input type="password" id="inputPassword" placeholder="Password">
-        </div>
-        </div>
-        <div class="control-group">
-        <div class="controls">
-        <label class="checkbox">
-        <input type="checkbox"> Remember me
-        </label>
-        <button type="submit" class="btn btn-success">Log in</button>
-        </div>
-        </div>
-        </form>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
     </div>
 
     <div class="span4">
