@@ -4,6 +4,7 @@ Project::Application.routes.draw do
   root to: 'static_pages#home'
   
   match '/signup', to: 'users#new'
+  match '/about',  to: 'static_pages#about'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
