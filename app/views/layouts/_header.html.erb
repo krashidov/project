@@ -10,8 +10,12 @@
         </ul>
         <div class="nav pull-right">
           
-        <button type="submit" class="btn btn-primary">Sign in</button>
-        <button type="submit" class="btn btn-primary">Sign out</buttib>
+        
+        <% if signed_in? %>
+        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-primary" %>
+        <%else %>
+        <a href="/signup" class="btn btn-primary">Sign up</a>
+        <%end %>
       
     </div>
       </nav>

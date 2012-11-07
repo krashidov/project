@@ -6,44 +6,24 @@
 <h1></h1>
 
     <div class="span6", id="div2">
+    <%= form_for(@user) do |f| %>
 
-        <form class="form-horizontal">
+      <%= render 'shared/error_messages' %>
 
-       
-        <div class="control-group">
-        <label class="control-label" for="signupEmail">Email</label>
-        <div class="controls">
-        <input type="text" id="signupEmail" placeholder="Email">
-       
-        </div>
-    </div>
-        <div class="control-group">
-        <label class="control-label" for="signupUsername">Username</label>
-        <div class="controls">
-        <input type="text" id="signupUsername" placeholder="Username">
-       
-        </div>
-    </div>
-        <div class="control-group">
-        <label class="control-label" for="signupPassword">Password</label>
-        
-        <div class="controls">
-        <input type="password" id="signupPassword" placeholder="Password">
-        </div>
-        </div>
-         <div class="control-group">
-        <label class="control-label" for="signupPassword">Password Confirm</label>
-        
-        <div class="controls">
-        
-        <input type="password" id="signupPassword" placeholder="Password Confirm">
-        </div>
-        </div>
-        
-        <div id="div1">
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn">Cancel</button>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
     </div>
 
         </div>
