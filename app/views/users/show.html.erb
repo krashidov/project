@@ -22,7 +22,14 @@
 margin-left: 50px;}
 
 </style>
+
     <div class="container-fluid">
+        <% if @user.posts.any? %>
+            <h3>Microposts (<%= @user.posts.count %>)</h3>
+            <ol class="microposts">
+                <%= render @posts %>
+            </ol>
+        <% end %>
     	<div class="row-fluid">
             
     		<div class="span2" id="div1">
