@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   has_many :posts, dependent: :destroy
-
+  has_attached_file :photo
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
