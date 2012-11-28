@@ -2,19 +2,16 @@
 <!DOCTYPE html>
 <html>
 <%= @user.name %>, <%= @user.email %> 
-
-<body>
-
-    <ul class="nav nav-tabs">
-    <li class="active">
-    <a href="#">Feed</a>
-    </li>
-    <li><a href="#">Workouts</a></li>
-    <li><a href="#">Diets</a></li>
-    <li><a href="#">Media</a></li>
-    </ul>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Your Income Expert</title>
+    <link type="text/css" rel="stylesheet/less" href="less/style.less">
+    <link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <script type="text/javascript" src="js/less.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+</head>
 <style type="text/css">
-
 #div1 {background-color: #87ceeb;padding:40px;width:200px;}
 #div2{background-color: #f5f5f5;
     padding:40px;
@@ -22,33 +19,43 @@
 margin-left: 50px;}
 
 </style>
+<body>
+<ul class='nav nav-tabs' id='tab'>
+  <li class="active"><a href="#Feed" data-toggle="tab">Feed</a></li>
+  <li><a href="#Workouts" data-toggle="tab">Workouts</a></li>
+  <li><a href="#Diets" data-toggle="tab">Diets</a></li>
+  <li><a href="#Media" data-toggle="tab">Media</a></li>
+</ul>
+ <div class="tab-content">
+    <div class='tab-pane active' id='Feed'>
+  
 
     <div class="container-fluid">
-    	<div class="row-fluid">
+        <div class="row-fluid">
             
-    		<div class="span2" id="div1">
+            <div class="span2" id="div1">
                 
-    			<img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
-			<p></p>
-    			<p></p>
-    			<p></p>
-    			<font>Name:</font> <%= @user.name %>
-    			<p></p>
-    			<font>Age:</font> 20 <!-- Add user.age -->
-			 	
-		</div>
+                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Age:</font> 20 <!-- Add user.age -->
+                
+        </div>
         
         
          <div class="span6" id="div2">
                  <%= render 'shared/post_form' %>
              <p></p>
-    				I worked out at ______ with workout
-    			 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-						Select a workout
-					<span class="caret"></span>
-				</a>
-			<ul class="dropdown-menu">
-			</ul>
+                    I worked out at ______ with workout
+                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        Select a workout
+                    <span class="caret"></span>
+                </a>
+            <ul class="dropdown-menu">
+            </ul>
             <button type="submit" class="btn btn-success">Submit</button>
 
 
@@ -93,6 +100,85 @@ margin-left: 50px;}
 
     </div>
     </div>
+  </div>
+
+  <div class='tab-pane' id='Workouts'>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Age:</font> 20 <!-- Add user.age -->
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <legend>Workouts</legend>
+         </div>
+
     </div>
+    </div>
+  
+  </div>
+
+  <div class='tab-pane' id='Diets'>
+  <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Age:</font> 20 <!-- Add user.age -->
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <legend>Diets</legend>
+         </div>
+
+    </div>
+    </div>
+  
+  </div>
+
+  <div class='tab-pane' id='Media'>
+  <div class="container-fluid">
+        <div class="row-fluid">
+            
+            <div class="span2" id="div1">
+                
+                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+            <p></p>
+                <p></p>
+                <p></p>
+                <font>Name:</font> <%= @user.name %>
+                <p></p>
+                <font>Age:</font> 20 <!-- Add user.age -->
+                
+        </div>
+        
+        
+         <div class="span6" id="div2">
+                 <legend>Media</legend>
+         </div>
+
+    </div>
+    </div>
+  
+  </div>
+</div>
 </body>
 </html>
