@@ -12,7 +12,8 @@
           
         
         <% if signed_in? %>
-        <%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-primary" %>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+	<%= link_to "Sign out", signout_path, method: "delete", class: "btn btn-primary" %>
         <%else %>
         <a href="/signup" class="btn btn-primary">Sign up</a>
         <%end %>
