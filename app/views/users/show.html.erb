@@ -29,20 +29,18 @@ margin-left: 50px;}
     		<div class="span2" id="div1">
                 
     			<img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
-    			<p></p>
+			<p></p>
     			<p></p>
     			<p></p>
     			<font>Name:</font> <%= @user.name %>
     			<p></p>
     			<font>Age:</font> 20 <!-- Add user.age -->
-    		</div>
+			 	
+		</div>
         
         
          <div class="span6" id="div2">
-                 <form class="form-search">
-                     <input type="text" placeholder="Update Status…">
-                     <button type="submit" class="btn-info">Post</button>
-                 </form>
+                 <%= render 'shared/post_form' %>
              <p></p>
     				I worked out at ______ with workout
     			 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
