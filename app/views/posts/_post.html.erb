@@ -1,6 +1,10 @@
 <li>
   <span class="content"><%= post.content %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
-  </span>
+  	<font color ="green">
+    Posted <%= time_ago_in_words(post.created_at) %> ago. </font>
+  	</span>
+       <FONT color="black"> | </FONT>
+       <FONT class="text-warning">Comment</FONT> 
+       <p></p>
 </li>
