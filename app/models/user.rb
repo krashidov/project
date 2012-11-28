@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :posts, dependent: :destroy
   has_attached_file :photo
-
+		    url: "/assets/users/:id/:basename.:extension"
+		    path: ":rails_root/public/assets/users/:id/:basename.:entension"		 	
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
