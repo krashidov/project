@@ -4,6 +4,7 @@ Project::Application.routes.draw do
   root to: 'static_pages#home'
     
   resources :sessions, only: [:new, :create, :destroy]
+  resources :posts, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:show]
-  before_filter :correct_user, only: [:show]
+  before_filter :signed_in_user, only: [:show, :edit, :update]
+  before_filter :correct_user, only: [:show, :edit, :update]
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
+    @post = current_user.posts.build
   end
 
   def new
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
@@ -38,13 +39,6 @@ class UsersController < ApplicationController
   end
 
   private
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to '/signin', notice: "Please sign in"
-      end
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_back_or(root_path) unless current_user?(@user)
