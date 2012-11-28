@@ -8,7 +8,8 @@ class PostsController < ApplicationController
       @post = current_user.posts.build(params[:post])
       if @post.save
         flash[:success] = "status updated!"
-        redirect_to "/show"
+        redirect_to root_path
+        #redirect_to "/show"
       else
         render 'static_pages/home'
       end
@@ -16,4 +17,6 @@ class PostsController < ApplicationController
 
   def destroy
   end
+
+
 end
