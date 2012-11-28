@@ -24,12 +24,6 @@ margin-left: 50px;}
 </style>
 
     <div class="container-fluid">
-        <% if @user.posts.any? %>
-            <h3>Microposts (<%= @user.posts.count %>)</h3>
-            <ol class="microposts">
-                <%= render @posts %>
-            </ol>
-        <% end %>
     	<div class="row-fluid">
             
     		<div class="span2" id="div1">
@@ -45,7 +39,11 @@ margin-left: 50px;}
         
         
          <div class="span6" id="div2">
-
+                 <form class="form-search">
+                     <input type="text" placeholder="Update Status…">
+                     <button type="submit" class="btn-info">Post</button>
+                 </form>
+             <p></p>
     				I worked out at ______ with workout
     			 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
 						Select a workout
@@ -58,6 +56,12 @@ margin-left: 50px;}
 
             <table class="table table-bordered">
             <hr>
+                    <% if @user.posts.any? %>
+                        <ol class="microposts">
+                            <%= render @posts %>
+                        </ol>
+                    <% end %>
+            <!--
             <p></p>
                  <FONT>Johnny went to workout at CU Rec</FONT>
             <p></p>
@@ -84,6 +88,7 @@ margin-left: 50px;}
                 <FONT>Long added a new photo</FONT>
             <p></p>  
             <img src="https://twimg0-a.akamaihd.net/profile_images/1127843736/University-of-Colorado-Boulder-sports-logo.png",width="200" , height="200"></img> 
+        -->
             </hr>
          </table>
          </div>

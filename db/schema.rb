@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127213344) do
+ActiveRecord::Schema.define(:version => 20121128014159) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
@@ -22,22 +22,17 @@ ActiveRecord::Schema.define(:version => 20121127213344) do
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
 
-  create_table "update_statuses", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "update_statuses", ["user_id", "created_at"], :name => "index_update_statuses_on_user_id_and_created_at"
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
