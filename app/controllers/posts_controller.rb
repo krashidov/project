@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @post = current_user.posts.build(params[:post])
       if @post.save
         flash[:success] = "status updated!"
-        redirect_to root_path
+        redirect_to current_user
         #redirect_to "/show"
       else
         render 'static_pages/home'

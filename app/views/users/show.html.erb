@@ -35,7 +35,7 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                <%= image_tag current_user.image_url if current_user.image? %>
             <p></p>
                 <p></p>
                 <p></p>
