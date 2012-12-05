@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :image
   has_secure_password
   has_many :posts, dependent: :destroy
+  has_many :diets, dependent: :destroy
   mount_uploader :image, ImageUploader
   #has_attached_file :photo
 #		    url: "/assets/users/:id/:basename.:extension"

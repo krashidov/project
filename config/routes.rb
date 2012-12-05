@@ -1,4 +1,6 @@
 Project::Application.routes.draw do
+  resources :diets
+
   resources :users
 
   root to: 'static_pages#home'

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @diet.name %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @diet.time %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @diet.info %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @diet.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_diet_path(@diet) %> |
+<%= link_to 'Back', diets_path %>

@@ -133,7 +133,7 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-                
+               
                 <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
             <p></p>
                 <p></p>
@@ -147,6 +147,13 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Diets</legend>
+                    <%= link_to 'New Diet', new_diet_path %>
+                    <% if @user.diets.any? %>
+                    <ol class="dietList">
+                      <%= render @diet %>
+                    </ol>
+                    <% end %>
+
          </div>
 
     </div>
