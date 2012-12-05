@@ -147,13 +147,12 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Diets</legend>
-                    <%= link_to 'New Diet', new_diet_path %>
                     <% if @user.diets.any? %>
                     <ol class="dietList">
                       <%= render @diet %>
                     </ol>
+                    <%= link_to 'New Diet', new_diet_path %>
                     <% end %>
-
          </div>
 
     </div>

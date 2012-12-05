@@ -1,8 +1,5 @@
 <li>
   <span class="name"><%= diet.name %></span>
-  <span class="time"><%= diet.time %></span>
-  <span class="info"><%= diet.info %></span>
-  <span class="Id"><%= diet.user_id %></span>
-       <FONT class="text-warning">Comment</FONT> 
+    <%= link_to 'Edit', edit_diet_path(diet) %>
        <p></p>
 </li>

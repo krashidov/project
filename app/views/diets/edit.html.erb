@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @diet %> |
-<%= link_to 'Back', diets_path %>
+<%= link_to 'Delete', @diet, method: :delete, data: { confirm: 'Are you sure?' } %>
+<FONT color="black"> | </FONT>
+<%= link_to 'Back', current_user %>

@@ -3,9 +3,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Time</th>
-    <th>Info</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,9 +11,6 @@
 <% @diets.each do |diet| %>
   <tr>
     <td><%= diet.name %></td>
-    <td><%= diet.time %></td>
-    <td><%= diet.info %></td>
-    <td><%= diet.user_id %></td>
     <td><%= link_to 'Show', diet %></td>
     <td><%= link_to 'Edit', edit_diet_path(diet) %></td>
     <td><%= link_to 'Destroy', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
