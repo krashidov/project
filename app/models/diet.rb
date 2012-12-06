@@ -1,5 +1,5 @@
 class Diet < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :time, :info
   
   belongs_to :user
 

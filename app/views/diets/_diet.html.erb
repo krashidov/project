@@ -1,5 +1,19 @@
 <li>
-  <span class="name"><%= diet.name %></span>
+<table class="table table-bordered">
+	<colgroup>
+		<col style="background-color:#58ACFA">
+   	    <col style="background-color:#87C7E7">
+   	    <col style="background-color:#58ACFA">
+	</colgroup>
+<tr>
+  <td color = "blue"><span class="name"><%= diet.name %></span></td>
+  <td><span class="time"><%= diet.time %></span></td>
+  <td><span class="info"><%= diet.info %></span></td>
+
     <%= link_to 'Edit', edit_diet_path(diet) %>
-       <p></p>
+    <i class="icon-shopping-cart"></i>
+    <%= diet.name %>
+</tr>
+    </table>
+
 </li>
