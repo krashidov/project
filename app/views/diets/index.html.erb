@@ -1,0 +1,23 @@
+<h1>Listing diets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @diets.each do |diet| %>
+  <tr>
+    <td><%= diet.name %></td>
+    <td><%= link_to 'Show', diet %></td>
+    <td><%= link_to 'Edit', edit_diet_path(diet) %></td>
+    <td><%= link_to 'Destroy', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Diet', new_diet_path %>
