@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @post = current_user.posts.build
+
+    @workouts = current_user.workouts
   end
 
   def new

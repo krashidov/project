@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128035000) do
+ActiveRecord::Schema.define(:version => 20121205030615) do
 
   create_table "posts", :force => true do |t|
     t.string   "content"
@@ -21,15 +21,6 @@ ActiveRecord::Schema.define(:version => 20121128035000) do
   end
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
-
-  create_table "update_statuses", :force => true do |t| 
-    t.string   "content" 
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false 
-  end
-
-add_index "update_statuses", ["user_id", "created_at"], :name => "index_update_statuses_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -47,5 +38,15 @@ add_index "update_statuses", ["user_id", "created_at"], :name => "index_update_s
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+
+  create_table "workouts", :force => true do |t|
+    t.string   "name"
+    t.string   "time"
+    t.string   "workout_type"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
 end

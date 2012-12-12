@@ -108,7 +108,7 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                <%= image_tag current_user.image_url if current_user.image? %>
             <p></p>
                 <p></p>
                 <p></p>
@@ -121,6 +121,29 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Workouts</legend>
+                 <table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workouts.each do |workout| %>
+  <tr>
+    <td><%= workout.name %></td>
+    <td><%= link_to 'Show', workout %></td>
+    <a href="workout" class="btn">Show</a>
+    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+    <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workout', new_workout_path %>
+
          </div>
 
     </div>
@@ -134,7 +157,7 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                <%= image_tag current_user.image_url if current_user.image? %>
             <p></p>
                 <p></p>
                 <p></p>
@@ -160,7 +183,7 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                <%= image_tag current_user.image_url if current_user.image? %>
             <p></p>
                 <p></p>
                 <p></p>
