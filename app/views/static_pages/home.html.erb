@@ -9,9 +9,9 @@
 
 
     <div class="btn-group">
-    <button class="btn btn-info">Home</button>
-    <button class="btn btn-info">About</button>
-    <button class="btn btn-info">Terms</button>
+    <%= link_to 'Home', root_url, class: "btn btn-info" %>
+    <%= link_to 'About', about_url, class: "btn btn-info" %>
+    <%= link_to 'Terms', terms_url, class: "btn btn-info" %>
      <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
             English
             <span class="caret"></span>
