@@ -1,0 +1,71 @@
+<style type="text/css">
+   body { background-color: #D8D8D8; }
+</style>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Your Income Expert</title>
+    <link type="text/css" rel="stylesheet/less" href="less/style.less">
+    <link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <script type="text/javascript" src="js/less.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+</head>
+    <div class="btn-group">
+    <%= link_to 'Home', root_url, class: "btn btn-info" %>
+    <%= link_to 'About', about_url, class: "btn btn-info" %>
+    <%= link_to 'Terms', terms_url, class: "btn btn-info" %>
+     <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+            English
+            <span class="caret"></span>
+    </a>
+            <ul class="dropdown-menu">
+            <!-- dropdown menu links -->
+            </ul>
+    </div>
+
+<p></p>
+<hr>
+    <div class="jumbotron">
+        <FONT size = "20">Terms of use</FONT>
+        <p></p>
+    </div>
+    <div class ="bullet point">
+    	    <div class="alert alert-warning">
+    	<font><b>Terms you agree to as a user</font>
+    		</div>
+    </div>
+
+
+
+</hr>
+    <ul class='nav nav-tabs' id='tab'>
+        <li class= "active"><a href="#Privacy" data-toggle="tab" >Privacy</a></li>
+        <li><a href="#Safety" data-toggle="tab" >Safety</a></li>
+        <li><a href="#Security" data-toggle="tab">Security</a></li>
+        <li><a href="#Contact" data-toggle="tab">Contact</a></li>
+    </ul>
+        <div class="tab-content">
+            <div class="tab-pane active " id="Privacy">
+                <div class="container-fluid">
+                <font>Your privacy is very important to us. We make great strides to make sure
+                that what you post or upload is only shown to users you select. Be careful when
+                publicly posting things you don't want being shared with others. </font>
+                </div>
+            </div>
+            <div class="tab-pane" id="Safety">
+                <div class="container-fluid">
+                <font>You agree as a user to this site that you will not try to upload malicious code or virsus.
+                You will not engage in cybor harassment or bullying or your membership will be revoked. If you feel that you were the victim of these acts please contact us. </font>
+                </div>
+            </div>
+            <div class="tab-pane" id="Security">
+                <div class="container-fluid">
+                <font>We do our best to keep your information safe and secure from other members. We provide secure measures to ensure that your information is safe and that other users don't have your information. To help us keep your account safe, please don't share your password to anyone.</font>
+                </div>
+            </div>
+            <div class="tab-pane" id="Contact">
+                <div class="container-fluid">
+                <font>Feel free to contact us about questions,comments, complaints.</font>
+                </div>
+            </div>
+    </div>
