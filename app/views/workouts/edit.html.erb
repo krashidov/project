@@ -2,5 +2,6 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Delete', @workout, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Show', @workout %> |
-<%= link_to 'Back', workouts_path %>
+<%= link_to 'Back', current_user %>

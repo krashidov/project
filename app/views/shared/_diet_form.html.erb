@@ -1,0 +1,7 @@
+<%= form_for(@diet) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :name, placeholder: "New Diet Name...", size: "1x3" %>
+  </div>
+  <%= f.submit "New Diet", class: "btn btn btn-warning" %>
+<% end %>

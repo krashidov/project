@@ -1,13 +1,11 @@
-<h1>Listing workouts</h1>
-
+<li>
 <table class="table table-bordered">
-  <colgroup>
-    <col style="background-color:#58ACFA">
-        <col style="background-color:#87C7E7">
-        <col style="background-color:#58ACFA">
-        <col style="background-color:#87C7E7">
-  </colgroup>
-  <tr>
+	<colgroup>
+		<col style="background-color:#58ACFA">
+   	    <col style="background-color:#87C7E7">
+   	    <col style="background-color:#58ACFA">
+	</colgroup>
+ <tr>
     <th>Name</th>
     <th>Time</th>
     <th>Workout type</th>
@@ -29,10 +27,5 @@
     <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
     <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
-<% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Workout', new_workout_path %>  |
-<%= link_to 'Back', current_user %>
+</li>

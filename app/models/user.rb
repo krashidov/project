@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :workouts, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :diets, dependent: :destroy
   mount_uploader :image, ImageUploader
   #has_attached_file :photo
 #		    url: "/assets/users/:id/:basename.:extension"

@@ -1,11 +1,10 @@
 Project::Application.routes.draw do
   resources :workouts
-
+  resources :diets
   resources :users
 
   root to: 'static_pages#home'
-  
-  resources :workouts  
+ 
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:create, :destroy]
 

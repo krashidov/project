@@ -121,28 +121,41 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Workouts</legend>
-                 <table>
+                   <% if @user.workouts.any? %>
+      <table class="table table-bordered">
+  <colgroup>
+    <col style="background-color:#58ACFA">
+        <col style="background-color:#87C7E7">
+        <col style="background-color:#58ACFA">
+        <col style="background-color:#87C7E7">
+        <col style="background-color:#58ACFA">
+  </colgroup>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
+    <th>Time</th>
+    <th>Workout type</th>
+    <th>Content</th>
     <th></th>
   </tr>
 
 <% @workouts.each do |workout| %>
   <tr>
     <td><%= workout.name %></td>
-    <td><%= link_to 'Show', workout %></td>
-    <a href="workout" class="btn">Show</a>
-    <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-    <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= workout.time %></td>
+    <td><%= workout.workout_type %></td>
+    <td><%= workout.content %></td>
+     <td><%= link_to 'Show', workout ,class: "btn"%>
+  <%= link_to 'Edit', edit_workout_path(workout) ,class: "btn"%>
+  <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' },class: "btn" %>
+    </td>
   </tr>
 <% end %>
 </table>
+                    <% end %>
 
-<br />
+                
 
-<%= link_to 'New Workout', new_workout_path %>
+<%= link_to 'New Workout', new_workout_path, class: "btn btn-info"  %>
 
          </div>
 
@@ -170,8 +183,13 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Diets</legend>
+                    <% if @user.diets.any? %>
+                    <ol class="dietList">
+                      <%= render @diet %>
+                    </ol>
+                    <% end %>
+                    <%= link_to 'New Diet', new_diet_path, class: "btn btn-info" %>
          </div>
-
     </div>
     </div>
   

@@ -1,30 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1>Workout Details</h1>
 
-<p>
-  <b>Name:</b>
-  <%= @workout.name %>
-</p>
+<table class="table table-hover">
+  <colgroup>
+    <row style="background-color:#58ACFA">
+        <row style="background-color:#87C7E7">
+        <row style="background-color:#58ACFA">
+        <row style="background-color:#87C7E7">
+  </colgroup>
+  <tr>
+  	<th>Name</th>
+  	<td> <%= @workout.name %></td>
+  </tr>
+  <tr>
+    <th>Time</th>
+    <td> <%= @workout.time %></td>
+</tr>
+<tr>
+    <th>Workout Type</th>
+    <td> <%= @workout.workout_type %></td>
+</tr>
+<tr>
+    <th>Content</th>
+    <td> <%= @workout.content %></td>
+  </tr>
 
-<p>
-  <b>Time:</b>
-  <%= @workout.time %>
-</p>
 
-<p>
-  <b>Workout type:</b>
-  <%= @workout.workout_type %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @workout.content %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @workout.user_id %>
-</p>
-
-
+</table>
 <%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<%= link_to 'Back', current_user %>

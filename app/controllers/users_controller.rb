@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @post = current_user.posts.build
 
     @workouts = current_user.workouts
+    @diet = current_user.diets
   end
 
   def new
