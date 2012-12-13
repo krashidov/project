@@ -1,4 +1,6 @@
 class WorkoutsController < ApplicationController
+  before_filter :signed_in_user#, only: [:create, :destroy]
+  before_filter :correct_user, only: [:create, :destroy, :edit, :update]
   # GET /workouts
   # GET /workouts.json
   def index
@@ -80,4 +82,14 @@ class WorkoutsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #make sure only people who own this can touch it
+  private
+    def correct_user
+      @workout = current_user.workouts.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash[:notice] = "You're not allowed to touch that!"
+        redirect_back_or(current_user)
+
+    end
 end
