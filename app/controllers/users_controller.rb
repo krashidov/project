@@ -8,7 +8,10 @@ class UsersController < ApplicationController
     @post = current_user.posts.build
 
     @workouts = current_user.workouts
+    @photo = Photo.new
+
     @diet = current_user.diets
+    @photos = @user.photos
   end
 
   def new

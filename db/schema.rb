@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205064820) do
+ActiveRecord::Schema.define(:version => 20121213000109) do
+
+  create_table "attachments", :force => true do |t|
+    t.text     "description"
+    t.string   "file"
+    t.integer  "attachable_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "attachments", ["attachable_id"], :name => "index_attachments_on_attachable_id"
 
   create_table "diets", :force => true do |t|
     t.string   "name"
@@ -27,8 +37,18 @@ ActiveRecord::Schema.define(:version => 20121205064820) do
     t.string   "time"
     t.text     "info"
     t.integer  "diet_id"
+
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -51,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20121205064820) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

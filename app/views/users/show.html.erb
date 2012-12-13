@@ -34,11 +34,13 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
+
                 <% if @current_user.image?%>
                 <%= image_tag current_user.image_url %>
                 <% else %>
                  <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
                  <%end%>
+
             <p></p>
                 <p></p>
                 <p></p>
@@ -208,7 +210,7 @@ margin-left: 50px;}
   <div class='tab-pane' id='Media'>
   <div class="container-fluid">
         <div class="row-fluid">
-            
+           <%= render @photos %> 
             <div class="span2" id="div1">
                 
                 <% if @current_user.image?%>
@@ -222,7 +224,7 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <%= link_to 'Images',new_photo_path, class: "btn btn-info" %>  
         </div>
         
         

@@ -1,5 +1,9 @@
 Project::Application.routes.draw do
   resources :workouts
+
+  resources :photos
+
+
   resources :diets
   resources :users
 
