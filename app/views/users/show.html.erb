@@ -34,8 +34,11 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-                
-                <%= image_tag current_user.image_url if current_user.image? %>
+                <% if @current_user.image?%>
+                <%= image_tag current_user.image_url %>
+                <% else %>
+                 <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                 <%end%>
             <p></p>
                 <p></p>
                 <p></p>
@@ -48,7 +51,7 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <%= render 'shared/post_form' %>
-             <p></p>
+         <!--    <p></p>
                     I worked out at ______ with workout
                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                         Select a workout
@@ -57,7 +60,7 @@ margin-left: 50px;}
             <ul class="dropdown-menu">
             </ul>
             <button type="submit" class="btn btn-success">Submit</button>
-
+-->
 
             <table class="table table-bordered">
             <hr>
@@ -107,8 +110,11 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-                
-                <%= image_tag current_user.image_url if current_user.image? %>
+                <% if @current_user.image?%>
+                <%= image_tag current_user.image_url %>
+                <% else %>
+                 <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                 <%end%>
             <p></p>
                 <p></p>
                 <p></p>
@@ -144,9 +150,9 @@ margin-left: 50px;}
     <td><%= workout.time %></td>
     <td><%= workout.workout_type %></td>
     <td><%= workout.content %></td>
-     <td><%= link_to 'Show', workout ,class: "btn"%>
-  <%= link_to 'Edit', edit_workout_path(workout) ,class: "btn"%>
-  <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' },class: "btn" %>
+     <td><%= link_to 'Show', workout%> | 
+  <%= link_to 'Edit', edit_workout_path(workout)%> | 
+  <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }%>
     </td>
   </tr>
 <% end %>
@@ -170,7 +176,11 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <%= image_tag current_user.image_url if current_user.image? %>
+                <% if @current_user.image?%>
+                <%= image_tag current_user.image_url %>
+                <% else %>
+                 <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                 <%end%>
             <p></p>
                 <p></p>
                 <p></p>
@@ -201,7 +211,11 @@ margin-left: 50px;}
             
             <div class="span2" id="div1">
                 
-                <%= image_tag current_user.image_url if current_user.image? %>
+                <% if @current_user.image?%>
+                <%= image_tag current_user.image_url %>
+                <% else %>
+                 <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                 <%end%>
             <p></p>
                 <p></p>
                 <p></p>
