@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   mount_uploader :photo, ImageUploader
+
+
   #We have many followed users through the relationship model
   #and the followed_id of the relationship model as the index
   has_many :followed_users, through: :relationships, source: :followed 
@@ -17,11 +19,6 @@ class User < ActiveRecord::Base
 
   has_many :followers, through: :reverse_relationships, source: :follower
 
-
-#mount_uploader :image, ImageUploader
-  #has_attached_file :photo
-#		    url: "/assets/users/:id/:basename.:extension"
-#		    path: ":rails_root/public/assets/users/:id/:basename.:entension"		 	
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
@@ -45,6 +42,10 @@ class User < ActiveRecord::Base
 
     def unfollow!(other_user)
       relationships.find_by_followed_id(other_user.id).destroy
+    end
+
+    def feed
+      Post.from_users_followed_by(self)
     end
 
 

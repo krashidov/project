@@ -4,16 +4,21 @@ class PostsController < ApplicationController
   def index
   end
 
-  def create
+  def create  
       @post = current_user.posts.build(params[:post])
       if @post.save
         flash[:success] = "status updated!"
         redirect_to current_user
         #redirect_to "/show"
       else
+        @feedposts = []
         render 'static_pages/home'
       end
   end
+
+
+
+
 
   def destroy
   end
