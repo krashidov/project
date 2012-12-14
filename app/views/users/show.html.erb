@@ -31,16 +31,23 @@ margin-left: 50px;}
 
  <div class="tab-content">
     <div class='tab-pane active' id='Feed'>
-      <div class="container-fluid">
+  
+
+    <div class="container-fluid">
+
         <div class="row-fluid">
+            
             <div class="span2" id="div1">
+
+            <p></p>
                 <p></p>
                 <p></p>
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
+                <div id="follow_form">
                 <% unless current_user?(@user) %>
-                  <div id="follow_form">
+                  
                   <% if current_user.following?(@user) %>
                     <%= render 'unfollow' %>
                   <% else %>
@@ -48,7 +55,7 @@ margin-left: 50px;}
                   <% end %>
   
                 <% end %>
-          </div>      
+                </div>      
         </div>
         
          <div class="span6" id="div2">
