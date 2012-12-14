@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/less.js"></script>
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
     <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
 </head>
 <style type="text/css">
 #div1 {background-color: #87ceeb;padding:40px;width:200px;}
@@ -222,7 +223,20 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Media</legend>
-		<%= render @photos %>
+                 <% if @user.diets.any? %>
+                  <div id="myCarousel" class="carousel">  
+                   <!-- Carousel items -->  
+                  <div class="carousel-inner"> 
+                  <div class ="active item">
+                          <img src="http://www.rainbowglitter.co.uk/web_images/my_album.gif", width="600" , height="400" class="img-polaroid"> </img>
+                  </div> 
+                      <%= render @photos %> 
+                  </div>  
+                  <!-- Carousel nav -->  
+                  <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
+                  <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>  
+                  </div> 
+                  <% end %>
          </div>
 
     </div>
