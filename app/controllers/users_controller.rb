@@ -52,6 +52,7 @@ class UsersController < ApplicationController
     #@title = "Following"
     @user = User.find(params[:id])
     #@users = 
+  end
 
   private
     def correct_user
