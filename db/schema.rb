@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213232314) do
+ActiveRecord::Schema.define(:version => 20121214015859) do
 
   create_table "attachments", :force => true do |t|
     t.text     "description"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20121213232314) do
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -69,15 +69,6 @@ ActiveRecord::Schema.define(:version => 20121213232314) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
-  create_table "update_statuses", :force => true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "update_statuses", ["user_id", "created_at"], :name => "index_update_statuses_on_user_id_and_created_at"
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -89,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20121213232314) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "photo"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
