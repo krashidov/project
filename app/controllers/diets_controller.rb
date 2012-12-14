@@ -1,5 +1,6 @@
 class DietsController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy, :edit]
+  before_filter :signed_in_user#, only: [:create, :destroy]
+  before_filter :correct_user, only: [:create, :destroy, :edit, :update]
   # GET /diets
   # GET /diets.json
   def index
