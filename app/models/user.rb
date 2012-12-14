@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
   has_many :diets, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  mount_uploader :image, ImageUploader
-
+  mount_uploader :photo, ImageUploader
   #We have many followed users through the relationship model
   #and the followed_id of the relationship model as the index
   has_many :followed_users, through: :relationships, source: :followed 

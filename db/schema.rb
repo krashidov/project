@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20121214015859) do
     t.string   "name"
     t.string   "time"
     t.text     "info"
-    t.integer  "user_id"
+    t.integer  "diet_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20121214015859) do
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
