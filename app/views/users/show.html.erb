@@ -20,30 +20,36 @@ margin-left: 50px;}
 
 </style>
 <body>
+                <% render "follow_form" %>
+
 <ul class='nav nav-tabs' id='tab'>
   <li class="active"><a href="#Feed" data-toggle="tab">Feed</a></li>
   <li><a href="#Workouts" data-toggle="tab">Workouts</a></li>
   <li><a href="#Diets" data-toggle="tab">Diets</a></li>
   <li><a href="#Media" data-toggle="tab">Media</a></li>
 </ul>
+
  <div class="tab-content">
     <div class='tab-pane active' id='Feed'>
-  
-
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="row-fluid">
-            
             <div class="span2" id="div1">
-
-            <p></p>
                 <p></p>
                 <p></p>
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <% unless current_user?(@user) %>
+                  <div id="follow_form">
+                  <% if current_user.following?(@user) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
+                  <% end %>
+  
+                <% end %>
+          </div>      
         </div>
-        
         
          <div class="span6" id="div2">
                  <%= render 'shared/post_form' %>

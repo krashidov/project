@@ -5,12 +5,19 @@ Project::Application.routes.draw do
 
 
   resources :diets
-  resources :users
+
+  #Make the urls: users/1/followers
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   root to: 'static_pages#home'
  
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :posts, only: [:create, :destroy]
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :posts,         only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
