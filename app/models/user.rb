@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation#, :image
+  attr_accessible :email, :name, :password, :password_confirmation, :photo
   has_secure_password
   has_many :workouts, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :diets, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  mount_uploader :image, ImageUploader
 
   #We have many followed users through the relationship model
   #and the followed_id of the relationship model as the index

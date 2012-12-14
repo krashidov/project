@@ -1,1 +1,19 @@
-HELLO WORLD
+<li>
+<table class="table table-bordered">
+        <colgroup>
+                <col style="background-color:#58ACFA">
+            <col style="background-color:#87C7E7">
+            <col style="background-color:#58ACFA">
+        </colgroup>
+<tr>
+  <td color = "blue"><span class="name"><%= photo.name %></span></td>
+  <td><span class="image"><%= image_tag photo.image_url.to_s %>
+</span></td>
+
+    <%= link_to 'Edit', edit_photo_path(photo) %>
+    <i class="icon-shopping-cart"></i>
+</tr>
+    </table>
+
+</li>
+
