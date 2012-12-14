@@ -1,13 +1,21 @@
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:show, :edit, :update]
-  before_filter :correct_user, only: [:show, :edit, :update]
+  before_filter :signed_in_user, only: [:index, :edit, :update, :following]
+  before_filter :correct_user, only: [:edit, :update]
+
+  def index
+    @users = User.paginate(page: params[:page])
+  end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
     @post = current_user.posts.build
 
+    @workouts = current_user.workouts
+    @photo = Photo.new
+
     @diet = current_user.diets
+    @photos = @user.photos
   end
 
   def new
@@ -38,6 +46,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def following
+    #@title = "Following"
+    @user = User.find(params[:id])
+    #@users = 
   end
 
   private

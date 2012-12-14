@@ -20,35 +20,47 @@ margin-left: 50px;}
 
 </style>
 <body>
+                <% render "follow_form" %>
+
 <ul class='nav nav-tabs' id='tab'>
   <li class="active"><a href="#Feed" data-toggle="tab">Feed</a></li>
   <li><a href="#Workouts" data-toggle="tab">Workouts</a></li>
   <li><a href="#Diets" data-toggle="tab">Diets</a></li>
   <li><a href="#Media" data-toggle="tab">Media</a></li>
 </ul>
+
  <div class="tab-content">
     <div class='tab-pane active' id='Feed'>
   
 
     <div class="container-fluid">
+
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-                
-                <%= image_tag current_user.image_url if current_user.image? %>
+
             <p></p>
                 <p></p>
                 <p></p>
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <div id="follow_form">
+                <% unless current_user?(@user) %>
+                  
+                  <% if current_user.following?(@user) %>
+                    <%= render 'unfollow' %>
+                  <% else %>
+                    <%= render 'follow' %>
+                  <% end %>
+  
+                <% end %>
+                </div>      
         </div>
-        
         
          <div class="span6" id="div2">
                  <%= render 'shared/post_form' %>
-             <p></p>
+         <!--    <p></p>
                     I worked out at ______ with workout
                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                         Select a workout
@@ -57,7 +69,7 @@ margin-left: 50px;}
             <ul class="dropdown-menu">
             </ul>
             <button type="submit" class="btn btn-success">Submit</button>
-
+-->
 
             <table class="table table-bordered">
             <hr>
@@ -107,8 +119,7 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-                
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+               
             <p></p>
                 <p></p>
                 <p></p>
@@ -121,6 +132,42 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Workouts</legend>
+                   <% if @user.workouts.any? %>
+      <table class="table table-bordered">
+  <colgroup>
+    <col style="background-color:#58ACFA">
+        <col style="background-color:#87C7E7">
+        <col style="background-color:#58ACFA">
+        <col style="background-color:#87C7E7">
+        <col style="background-color:#58ACFA">
+  </colgroup>
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Workout type</th>
+    <th>Content</th>
+    <th></th>
+  </tr>
+
+<% @workouts.each do |workout| %>
+  <tr>
+    <td><%= workout.name %></td>
+    <td><%= workout.time %></td>
+    <td><%= workout.workout_type %></td>
+    <td><%= workout.content %></td>
+     <td><%= link_to 'Show', workout%> | 
+  <%= link_to 'Edit', edit_workout_path(workout)%> | 
+  <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }%>
+    </td>
+  </tr>
+<% end %>
+</table>
+                    <% end %>
+
+                
+
+<%= link_to 'New Workout', new_workout_path, class: "btn btn-info"  %>
+
          </div>
 
     </div>
@@ -133,8 +180,8 @@ margin-left: 50px;}
         <div class="row-fluid">
             
             <div class="span2" id="div1">
-               
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                
+                
             <p></p>
                 <p></p>
                 <p></p>
@@ -162,17 +209,18 @@ margin-left: 50px;}
   <div class='tab-pane' id='Media'>
   <div class="container-fluid">
         <div class="row-fluid">
-            
+           <%= render @photos %> 
             <div class="span2" id="div1">
                 
-                <img src="http://designlap.com/wp-content/gallery/arnold/arnold.jpg",width="200" , height="200"></img>
+                
             <p></p>
                 <p></p>
                 <p></p>
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <p></p>
+                <%= link_to 'Images',new_photo_path, class: "btn btn-info" %>  
         </div>
         
         
