@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(:version => 20121214015859) do
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.string   "image"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
   end
 
   create_table "posts", :force => true do |t|
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(:version => 20121214015859) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "update_statuses", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "update_statuses", ["user_id", "created_at"], :name => "index_update_statuses_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

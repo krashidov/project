@@ -42,4 +42,8 @@ aside {
     margin-bottom: 5px;
   }
 }
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+}
 

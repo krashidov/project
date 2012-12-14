@@ -1,6 +1,6 @@
 class DietsController < ApplicationController
   before_filter :signed_in_user#, only: [:create, :destroy]
-  before_filter :correct_user, only: [:create, :destroy, :edit, :update]
+  #before_filter :correct_user, only: [:create, :destroy, :edit, :update]
   # GET /diets
   # GET /diets.json
   def index
@@ -81,6 +81,16 @@ class DietsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to current_user}
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def correct_user
+    @diet = Diet.find(params[:id])
+    if(@diet != nil)
+      @user = User.find(@diet.user_id)
+      flash[:notice] = "#{@diet.user_id}"
+      redirect_back_or(root_path) unless current_user?(@user)
     end
   end
 end

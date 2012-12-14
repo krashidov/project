@@ -1,11 +1,12 @@
 class WorkoutsController < ApplicationController
   before_filter :signed_in_user#, only: [:create, :destroy]
-  before_filter :correct_user, only: [:create, :destroy, :edit, :update]
+  #before_filter :correct_user_create, only: [:create]
+  #before_filter :correct_user, only: [ :destroy, :edit, :update]
+
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.all
-
+    @workouts = current_user.workouts.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @workouts }
@@ -42,11 +43,12 @@ class WorkoutsController < ApplicationController
   # POST /workouts
   # POST /workouts.json
   def create
+    @workout = Workout.new(params[:workout])
     @workout = current_user.workouts.build(params[:workout])
 
     respond_to do |format|
       if @workout.save
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Workout was successfully created.' }
         format.json { render json: @workout, status: :created, location: @workout }
       else
         format.html { render action: "new" }
@@ -78,10 +80,11 @@ class WorkoutsController < ApplicationController
     @workout.destroy
 
     respond_to do |format|
-      format.html { redirect_to workouts_url }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end
+
 
   #make sure only people who own this can touch it
 end

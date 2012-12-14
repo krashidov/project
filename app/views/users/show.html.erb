@@ -60,16 +60,6 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <%= render 'shared/post_form' %>
-         <!--    <p></p>
-                    I worked out at ______ with workout
-                 <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        Select a workout
-                    <span class="caret"></span>
-                </a>
-            <ul class="dropdown-menu">
-            </ul>
-            <button type="submit" class="btn btn-success">Submit</button>
--->
 
             <table class="table table-bordered">
             <hr>
@@ -78,34 +68,6 @@ margin-left: 50px;}
                             <%= render @posts %>
                         </ol>
                     <% end %>
-            <!--
-            <p></p>
-                 <FONT>Johnny went to workout at CU Rec</FONT>
-            <p></p>
-                <FONT class="text-success">View his workout</FONT>
-                <FONT color="black"> | </FONT>
-                <FONT class="text-warning">Comment</FONT>
-            <p></p>
-            </hr>
-            <hr>
-                <FONT>Lauren went to workout at Bear Creek Rec</FONT>
-            <p></p>
-                <FONT class="text-success">View his workout</FONT>
-                <FONT color="black"> | </FONT>
-                <FONT class="text-warning">Comment</FONT>
-            <p></p>
-            </hr>
-            <hr>
-                <FONT>Elizabeth added a new photo</FONT>
-            <p></p>  
-            <img src="http://www.colorado.edu/recreation/images/main1.jpg",width="200" , height="200"></img> 
-             </hr>
-             <hr>
-             <p></p>
-                <FONT>Long added a new photo</FONT>
-            <p></p>  
-            <img src="https://twimg0-a.akamaihd.net/profile_images/1127843736/University-of-Colorado-Boulder-sports-logo.png",width="200" , height="200"></img> 
-        -->
             </hr>
          </table>
          </div>
@@ -133,36 +95,8 @@ margin-left: 50px;}
          <div class="span6" id="div2">
                  <legend>Workouts</legend>
                    <% if @user.workouts.any? %>
-      <table class="table table-bordered">
-  <colgroup>
-    <col style="background-color:#58ACFA">
-        <col style="background-color:#87C7E7">
-        <col style="background-color:#58ACFA">
-        <col style="background-color:#87C7E7">
-        <col style="background-color:#58ACFA">
-  </colgroup>
-  <tr>
-    <th>Name</th>
-    <th>Time</th>
-    <th>Workout type</th>
-    <th>Content</th>
-    <th></th>
-  </tr>
-
-<% @workouts.each do |workout| %>
-  <tr>
-    <td><%= workout.name %></td>
-    <td><%= workout.time %></td>
-    <td><%= workout.workout_type %></td>
-    <td><%= workout.content %></td>
-     <td><%= link_to 'Show', workout%> | 
-  <%= link_to 'Edit', edit_workout_path(workout)%> | 
-  <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }%>
-    </td>
-  </tr>
-<% end %>
-</table>
-                    <% end %>
+                    <%= render @workout %>
+                   <% end %>
 
                 
 
@@ -237,7 +171,7 @@ margin-left: 50px;}
                   <!-- Carousel nav -->  
                   <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
                   <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>  
-                  </div> 
+                  </div>  
                   <% end %>
          </div>
 

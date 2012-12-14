@@ -5,23 +5,13 @@ Project::Application.routes.draw do
 
 
   resources :diets
+  resources :workouts
+  resources :photos
 
   #Make the urls: users/1/followers
   resources :users do
     member do
       get :following, :followers
-    end
-
-    member do 
-      resources :workouts
-    end
-
-    member do
-      resources :diets
-    end
-
-    member do
-      resources :photos
     end
   end
 

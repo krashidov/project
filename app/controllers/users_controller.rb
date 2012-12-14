@@ -11,10 +11,10 @@ class UsersController < ApplicationController
     @posts = @user.posts.paginate(page: params[:page])
     @post = current_user.posts.build
 
-    @workouts = current_user.workouts
+    @workout = @user.workouts
     @photo = Photo.new
 
-    @diet = current_user.diets
+    @diet = @user.diets
     @photos = @user.photos
   end
 
@@ -51,9 +51,22 @@ class UsersController < ApplicationController
   def following
     #@title = "Following"
     @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
     #@users = 
   end
 
-    
+  def followers 
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  private
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_back_or(root_path) unless current_user?(@user)
+  end
+
 
 end

@@ -42,14 +42,6 @@ module SessionsHelper
     end
   end
 
-  def correct_user
-    @user = User.find(params[:id])
-    unless current_user?(@user)
-      redirect_back_or(@user)
-      flash[:notice] = "You're not allowed to touch that!"
-    end
-  end
-
   
 
 end
