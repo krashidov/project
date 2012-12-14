@@ -1,5 +1,5 @@
 Project::Application.routes.draw do
-  resources :workouts
+  #resources :workouts do
 
   resources :photos
 
@@ -10,6 +10,18 @@ Project::Application.routes.draw do
   resources :users do
     member do
       get :following, :followers
+    end
+
+    member do 
+      resources :workouts
+    end
+
+    member do
+      resources :diets
+    end
+
+    member do
+      resources :photos
     end
   end
 
