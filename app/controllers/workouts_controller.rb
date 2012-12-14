@@ -84,12 +84,4 @@ class WorkoutsController < ApplicationController
   end
 
   #make sure only people who own this can touch it
-  private
-    def correct_user
-      @workout = current_user.workouts.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-        flash[:notice] = "You're not allowed to touch that!"
-        redirect_back_or(current_user)
-
-    end
 end

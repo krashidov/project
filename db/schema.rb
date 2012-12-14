@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20121214015859) do
     t.string   "name"
     t.string   "time"
     t.text     "info"
-    t.integer  "diet_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -54,10 +54,6 @@ class UsersController < ApplicationController
     #@users = 
   end
 
-  private
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_back_or(root_path) unless current_user?(@user)
-    end
+    
 
 end

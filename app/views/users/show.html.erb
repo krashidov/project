@@ -20,7 +20,6 @@ margin-left: 50px;}
 
 </style>
 <body>
-                <% render "follow_form" %>
 
 <ul class='nav nav-tabs' id='tab'>
   <li class="active"><a href="#Feed" data-toggle="tab">Feed</a></li>
@@ -47,13 +46,11 @@ margin-left: 50px;}
                 <font>Age:</font> 20 <!-- Add user.age -->
                 <div id="follow_form">
                 <% unless current_user?(@user) %>
-                  
                   <% if current_user.following?(@user) %>
                     <%= render 'unfollow' %>
                   <% else %>
                     <%= render 'follow' %>
                   <% end %>
-  
                 <% end %>
                 </div>      
         </div>
