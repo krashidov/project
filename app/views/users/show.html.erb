@@ -161,12 +161,12 @@ margin-left: 50px;}
         
          <div class="span6" id="div2">
                  <legend>Media</legend>
-                 <% if @user.diets.any? %>
+                 <% if @user.photos.any? %>
                   <div id="myCarousel" class="carousel">  
                    <!-- Carousel items -->  
                   <div class="carousel-inner"> 
                   <div class ="active item">
-                          <img src="http://www.rainbowglitter.co.uk/web_images/my_album.gif", width="600" , height="400" class="img-polaroid"> </img>
+                          <%= image_tag @user.photo %>
                   </div> 
                       <%= render @photos %> 
                   </div>  
