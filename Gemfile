@@ -12,7 +12,7 @@ group :development, :test do
   #gem 'guard-rspec'
 end
 
-group :production do
+group :production, :staging do
   gem 'pg'
 end
 
