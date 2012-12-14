@@ -88,7 +88,7 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <%= image_tag @user.photo %>
         </div>
         
         
@@ -122,7 +122,7 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
-                
+                <%= image_tag @user.photo %>
         </div>
         
         
@@ -152,6 +152,8 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
+                <p></p>
+                <%= image_tag @user.photo %>
                 <p></p>
                 <%= link_to 'Images',new_photo_path, class: "btn btn-info" %>  
         </div>
