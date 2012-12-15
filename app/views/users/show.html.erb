@@ -90,7 +90,10 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
+                
+                <% if @user.photo? %>
                 <%= image_tag @user.photo %>
+                <% end %>
         </div>
         
         
@@ -124,7 +127,9 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
+                <% if @user.photo? %>
                 <%= image_tag @user.photo %>
+                <% end %>
         </div>
         
         
@@ -155,7 +160,9 @@ margin-left: 50px;}
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
                 <p></p>
+                <% if @user.photo? %>
                 <%= image_tag @user.photo %>
+                <% end %>
                 <p></p>
                 <%= link_to 'Images',new_photo_path, class: "btn btn-info" %>  
         </div>
