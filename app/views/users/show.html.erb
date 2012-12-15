@@ -45,7 +45,9 @@ margin-left: 50px;}
                 <font>Name:</font> <%= @user.name %>
                 <p></p>
                 <font>Age:</font> 20 <!-- Add user.age -->
+                <% if @user.photo? %>
                 <%= image_tag @user.photo %>
+                <% end %>
 
 		<div id="follow_form">
                 <% unless current_user?(@user) %>
